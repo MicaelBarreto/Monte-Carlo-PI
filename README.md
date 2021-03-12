@@ -7,18 +7,18 @@ Este projeto segue o modelo SPMD ao qual cada tarefa worker executará o mesmo c
 
 ## Estrutura do projeto
 O projeto encontra-se com os seguintes arquivos:
-- **monte-carlo.cu**: Arquivo cuda base ou host ou master ao qual contem o codigo fonte que servirá como ponto de partida para as execuções.
+- **main.cu**: Arquivo cuda base ou host ou master ao qual contem o codigo fonte que servirá como ponto de partida para as execuções.
 - **kernels.cu**: Arquivo cuda que contem os codigos a serem executados pelo worker.
-- **kernel.cuh**: Biblioteca cuda utilizada para fazer um link entre os codigos de **monte-carlo.cu** e **kernels.cu**.
-- **Makefile**: Arquivo utilizado para facilitar a compilação dos códigos de **monte-carlo.cu** e **kernels.cu**.
+- **kernels.cuh**: Biblioteca cuda utilizada para fazer um link entre os codigos de **main.cu** e **kernels.cu**.
+- **Makefile**: Arquivo utilizado para facilitar a compilação dos códigos de **main.cu** e **kernels.cu**.
 
-### monte-carlo.cu
+### main.cu
 Neste arquivo é feito todo setup do projeto e sua inicialização. Sendo o master, este codigo possui as variaveis de controle,
 assim como chama o setup dos workers e os próprios workers, coletando os dados dos mesmos e fazendo o calculo do valor aproxmado de PI.
 As variaveis de controle com seus respectivos significados são: 
-- r: raio da circunferencia
-- n: numero de threads
-- m: pontos por thread
+- **r**: raio da circunferencia
+- **n**: numero de threads
+- **m**: pontos por thread
 
 ### kernels.cu
 Neste arquivo possui o setup dos workers e os calculos que estes deveram fazer, ao qual é feita a colocação dos pontos aleatoriamente e separação daqueles que se encontram dentro da circunferencia,
